@@ -242,8 +242,6 @@ private:
 
   std::vector<geometry_msgs::msg::PoseStamped> global_plan_;
 
-  std::vector<geometry_msgs::msg::PoseStamped> predicted_plan_;
-
   // Used for tricycle model
   bool use_tricycle_model_;
   std::string steered_wheel_frame_;

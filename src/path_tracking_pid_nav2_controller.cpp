@@ -340,16 +340,16 @@ bool PathTrackingPid::computeVelocityCommands(geometry_msgs::msg::TwistStamped& 
 
   if (pid_controller_.getConfig().use_mpc)
   {
-    predicted_plan_ = pid_controller_.getPredictedPlan();
+    std::vector<geometry_msgs::msg::PoseStamped>predicted_plan_ = pid_controller_.getPredictedPlan();
     if (!predicted_plan_.empty())
     {
-      RCLCPP_ERROR(node_->get_logger(), "Publish the predicted path...");
+      RCLCPP_DEBUG(node_->get_logger(), "Publish the predicted path...");
       predicted_path_.header = global_plan_.at(0).header;
       predicted_path_.poses = predicted_plan_;
       predicted_pub_->publish(predicted_path_);
     }
     else {
-      RCLCPP_ERROR(node_->get_logger(), "Predicted path is empty!!! Predicted path is empty!!! Predicted path is empty!!!...");
+      RCLCPP_ERROR(node_->get_logger(), "Predicted path is empty!");
     }
   }
 
