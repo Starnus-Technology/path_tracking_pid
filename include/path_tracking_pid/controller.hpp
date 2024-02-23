@@ -306,7 +306,7 @@ public:
   // Added get-function for predicted plan
   std::vector<geometry_msgs::msg::PoseStamped> getPredictedPlan()
   {
-    return predicted_plan;
+    return predicted_plan_;
   }
 
   // Set new vel_max_external value
@@ -347,7 +347,7 @@ private:
 
   // Global Plan variables
   std::vector<tf2::Transform> global_plan_tf_;  // Global plan vector
-  std::vector<geometry_msgs::msg::PoseStamped> predicted_plan; // Added predicted plan var
+  std::vector<geometry_msgs::msg::PoseStamped> predicted_plan_; // Added predicted plan var
   std::vector<double> distance_to_goal_vector_;  // Vector with distances to goal
   std::vector<double> turning_radius_inv_vector_;  // Vector with computed turning radius inverse
   double distance_to_goal_;

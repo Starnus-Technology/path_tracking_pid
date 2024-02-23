@@ -968,7 +968,7 @@ double Controller::mpc_based_max_vel(const double target_x_vel, geometry_msgs::m
   double mpc_vel_limit = new_nominal_x_vel;
 
   // Loop MPC
-  predicted_plan.clear();
+  predicted_plan_.clear();
   while (mpc_fwd_iter < mpc_max_fwd_iter_ && mpc_vel_optimization_iter <= mpc_max_vel_optimization_iter_)
   {
     mpc_fwd_iter += 1;
@@ -1060,7 +1060,7 @@ double Controller::mpc_based_max_vel(const double target_x_vel, geometry_msgs::m
 
     // Append the predicted pose to the predicted plan
     RCLCPP_WARN(node_->get_logger(), "Add the pose..."); 
-    predicted_plan.push_back(poseStamped);
+    predicted_plan_.push_back(poseStamped);
   }
   // Apply limits to the velocity
   mpc_vel_limit = copysign(1.0, target_x_vel) *

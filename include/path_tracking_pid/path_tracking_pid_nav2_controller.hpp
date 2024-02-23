@@ -234,8 +234,6 @@ private:
 
   nav_msgs::msg::Path received_path_;
 
-  nav_msgs::msg::Path predicted_path_;
-
   geometry_msgs::msg::TransformStamped tfCurPoseStamped_;
 
   PidConfig config_;
